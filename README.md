@@ -1,10 +1,10 @@
 # llama.ttf
 
-A font containing a large language model.
+A font containing a large language model and inference engine.
 
 ## What?
 
-A font containing a large language model.
+A font containing a large language model and inference engine.
 
 ## Why?
 
