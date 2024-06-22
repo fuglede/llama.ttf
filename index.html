@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="da">
+  <head>
+    <meta charset="utf-8">
+    <title>llama.ttf</title>
+    <meta name="description" content="llama.ttf: A font file which is also an LLM">
+    <style>
+      @font-face {
+        font-family: 'Inter Regular';
+        font-style: normal;
+        font-weight: normal;
+        src: local('Inter Regular'), url('Inter-Regular.woff') format('woff');
+      }
+
+      @font-face {
+        font-family: 'Inter Semi Bold';
+        font-style: normal;
+        font-weight: normal;
+        src: local('Inter Semi Bold'), url('Inter-SemiBold.woff') format('woff');
+      }
+
+      body {
+        font-family: "Inter Regular",-apple-system,BlinkMacSystemFont,"Segoe UI Adjusted","Segoe UI","Liberation Sans",sans-serif;
+      }
+
+      h1, h2, h3 {
+        font-family: "Inter Semi Bold";
+        vertical-align: middle;
+      }
+
+      p {
+        line-height: 150%;
+      }
+
+      .container {
+        width: 100%;
+        max-width: 700px;
+        margin: auto;
+      }
+
+      a {
+        color: blue;
+      }
+
+      a:link {
+        text-decoration: none;
+      }
+
+      a:visited {
+        text-decoration: none;
+      }
+
+      a:hover {
+        text-decoration: underline;
+      }
+
+      a:active {
+        text-decoration: underline;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="container">
+      <h1>llama.ttf</h1>
+      <p>llama.ttf is a font file which is also a large language model and an inference engine for that model.</p>
+      <h3>Ehm, what?</h3>
+      <p>llama.ttf is a font file which is also a large language model and an inference engine for that model.</p>
+      <h3>Why?</h3>
+      <h3>How?</h3>
+      <p>
+        The font shaping engine <a href="https://en.wikipedia.org/wiki/HarfBuzz">Harfbuzz</a>, used in applications such as Firefox and Chrome,
+        comes with a <a href="https://github.com/harfbuzz/harfbuzz/blob/main/docs/wasm-shaper.md">Wasm shaper</a> allowing arbitrary code to be
+        used to "shape" text.
+        
+        <br /><br />
+        In particular, this "arbitrary" code could in principle be an entire LLM inference engine (<a href="https://en.wikipedia.org/wiki/Llama_(language_model)">Llama</a> in our case,
+        hence the name).
+        <br/><br />
+        It could also in principle be an entire LLM inference engine but not just in principle, relying on treating text containing magic
+        symbols for fake "ligatures" to initialize the LLM and use it to generate text.
+      </p>
+      <h3>Okay show me</h3>
+      <p>Yeah, sorry, that was brief. Here's an attempt to make it make more sense:</p>
+      <iframe width="560" height="315" src="https://www.youtube.com/embed/Q4bOyYctgFI?si=XAAcj3uf02vxdXwM" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+      <p>Skip to 6:09 if you just want to see the font in action.</p>
+      <h3>Usage</h3>
+      <p>Just download <a href="https://github.com/fuglede/llama.ttf/raw/master/llamattf/llama.ttf">llama.ttf</a> and use it like you would any other font. Use it somewhere where Harfbuzz is used and built with Wasm support.</p>
+    </div>
+  </body>
+</html>
+
