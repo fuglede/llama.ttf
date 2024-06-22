@@ -1,0 +1,53 @@
+
+@font-face {
+    font-family: 'Inter Regular';
+    font-style: normal;
+    font-weight: normal;
+    src: local('Inter Regular'), url('Inter-Regular.woff') format('woff');
+  }
+
+  @font-face {
+    font-family: 'Inter Semi Bold';
+    font-style: normal;
+    font-weight: normal;
+    src: local('Inter Semi Bold'), url('Inter-SemiBold.woff') format('woff');
+  }
+
+  body {
+    font-family: "Inter Regular",-apple-system,BlinkMacSystemFont,"Segoe UI Adjusted","Segoe UI","Liberation Sans",sans-serif;
+  }
+
+  h1, h2, h3 {
+    font-family: "Inter Semi Bold";
+    vertical-align: middle;
+  }
+
+  p {
+    line-height: 150%;
+  }
+
+  .container {
+    width: 100%;
+    max-width: 700px;
+    margin: auto;
+  }
+
+  a {
+    color: blue;
+  }
+
+  a:link {
+    text-decoration: none;
+  }
+
+  a:visited {
+    text-decoration: none;
+  }
+
+  a:hover {
+    text-decoration: underline;
+  }
+
+  a:active {
+    text-decoration: underline;
+  }
