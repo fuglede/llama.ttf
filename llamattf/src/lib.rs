@@ -40,7 +40,11 @@ fn next_n_words(s: &str, seq_len: usize) -> String {
         pos += 1;
     }
 
-    let result = tokens.into_iter().map(|x| vocab.get_token(x).to_string()).collect::<Vec<_>>().join("");
+    let result = tokens
+        .into_iter()
+        .map(|x| vocab.get_token(x).to_string())
+        .collect::<Vec<_>>()
+        .join("");
     result.replace("\n", " ")
 }
 
@@ -60,7 +64,9 @@ pub fn shape(
     // Here's a hardcoded assumption that the story we want to build starts with "Once upon a time";
     // cf. the comment above, just encoding actual text we get into tokens instead, we get
     // text generation for any string. This is fine enough for a demo though.
-    let res_str = if str_buf.starts_with("Once upon a time!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!") {
+    let res_str = if str_buf.starts_with(
+        "Once upon a time!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!",
+    ) {
         let count = str_buf.chars().filter(|c| *c == '!').count() as usize;
         let s = format!("{}", next_n_words(&str_buf, count + 5 - 70));
         debug(&s);
@@ -68,9 +74,13 @@ pub fn shape(
     } else if str_buf.starts_with("Abracadabra") || str_buf.starts_with("Once upon") {
         format!("{}", str_buf).replace("ö", "ø")
     } else {
-        format!("{}", str_buf).replace("Open", "LLaMa").replace("ö", "ø").replace("o", "ø")
+        format!("{}", str_buf)
+            .replace("Open", "LLaMa")
+            .replace("ö", "ø")
+            .replace("o", "ø")
     };
-    buffer.glyphs = res_str.chars()
+    buffer.glyphs = res_str
+        .chars()
         .enumerate()
         .map(|(ix, x)| Glyph {
             codepoint: x as u32,

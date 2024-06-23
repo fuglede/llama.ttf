@@ -24,10 +24,8 @@
 
 use std::mem;
 
-
-static STORIES: &[u8; 60816028] = include_bytes!("stories15M.bin");  // Yup ...
+static STORIES: &[u8; 60816028] = include_bytes!("stories15M.bin"); // Yup ...
 static TOKENIZER: &[u8; 304713] = include_bytes!("tokenizer.bin");
-
 
 const CONF_VALS: usize = 7;
 const CONF_SIZE: usize = std::mem::size_of::<[i32; CONF_VALS]>();
@@ -121,9 +119,9 @@ type Llama2CPUFloat = LlamaWeights<CPULayerFloat, Vec<Ty>, Vec<Ty>, Vec<Ty>>;
 
 pub struct ExecutionState<Buffer> {
     /// Shape:(dim,)
-    x: Buffer,   
+    x: Buffer,
     /// Shape:(dim,)
-    xb: Buffer, 
+    xb: Buffer,
     /// Shape:(dim,)
     xb2: Buffer,
     /// Shape:(hidden_dim,)
@@ -134,7 +132,7 @@ pub struct ExecutionState<Buffer> {
     q: Buffer,
     /// (dim,): K buffer
     k: Buffer,
-    /// (dim,): V buffer 
+    /// (dim,): V buffer
     v: Buffer,
     /// (n_heads, seq_len): Attention Weight Buffer
     att: Buffer,
@@ -231,7 +229,7 @@ where
 
     fn attention(&self, pos: usize, cfg: &Config, state: &ExecutionState<Vec<Ty>>) {
         // State is a shared reference becasue we will pass that to multiple threads.
-        // However we are going to take an unsafe mutable references inside the threads 
+        // However we are going to take an unsafe mutable references inside the threads
         // We can do that because each thread handles a single head and head data is disjoint
         let head_size = cfg.dim / cfg.n_heads;
         let k_cache = self.k_cache.as_slice();
@@ -433,15 +431,12 @@ fn load_raw_karphaty(cfg: &Config) -> (Vec<Vec<Ty>>, Option<Vec<Ty>>) {
 
     (
         parameters,
-        cfg.shared_weights.then(|| f(offset, cfg.vocab_size * cfg.dim)),
+        cfg.shared_weights
+            .then(|| f(offset, cfg.vocab_size * cfg.dim)),
     )
-
-
 }
 
-
 impl Llama2CPUFloat {
-
     pub fn load_weights(cfg: &Config) -> Self {
         let (weights, wcls) = load_raw_karphaty(cfg);
         let embeddings = weights[0].clone();
@@ -486,8 +481,6 @@ impl Llama2CPUFloat {
     }
 }
 
-
-
 impl Config {
     /// Read raw bytes and force those to be our config type (which conforms to C mem layout)
     pub fn from_file() -> Self {
@@ -531,7 +524,7 @@ impl Vocab {
         let mut val = [0; 1];
         for vs in 0..vocab_size {
             for j in 0..4 {
-                len[j] = vocab_bytes[pointer+j];
+                len[j] = vocab_bytes[pointer + j];
             }
             pointer += 4;
             //vocab_bin.read_exact(&mut len).unwrap();
@@ -540,7 +533,7 @@ impl Vocab {
             (0..l).for_each(|_| {
                 val[0] = vocab_bytes[pointer];
                 pointer += 1;
-                // vocab_bin.read_exact(&mut val).unwrap(); 
+                // vocab_bin.read_exact(&mut val).unwrap();
                 bytes.extend(val);
             });
         }
@@ -556,7 +549,6 @@ impl Vocab {
         std::str::from_utf8(b).unwrap()
     }
 }
-
 
 #[cfg(not(feature = "parallel"))]
 fn matmul(out: &mut [Ty], x: &[Ty], w: &[Ty]) {
