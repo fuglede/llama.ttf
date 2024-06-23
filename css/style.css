@@ -17,6 +17,10 @@
     font-family: "Inter Regular",-apple-system,BlinkMacSystemFont,"Segoe UI Adjusted","Segoe UI","Liberation Sans",sans-serif;
   }
 
+  code {
+    font-family: monospace;
+  }
+
   h1, h2, h3 {
     font-family: "Inter Semi Bold";
     vertical-align: middle;
