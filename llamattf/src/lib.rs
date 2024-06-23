@@ -22,6 +22,10 @@ fn next_n_words(s: &str, seq_len: usize) -> String {
     }
     let initial_tokens = tokens.len();
     tokens = vec![];
+    // Here we're just running with temperature 0, so we get deterministic outputs. Some other fun
+    // could be to allow for some randomness by using a letter, e.g. "?" to say "I didn't like
+    // that last token, please give me another one". Or a way of specifying a seed, which could
+    // also just be done in the input text.
     while pos < seq_len + initial_tokens {
         let next = state
             .logits
@@ -53,6 +57,9 @@ pub fn shape(
     // Get buffer as string
     let buf_u8: Vec<u8> = buffer.glyphs.iter().map(|g| g.codepoint as u8).collect();
     let str_buf = String::from_utf8_lossy(&buf_u8);
+    // Here's a hardcoded assumption that the story we want to build starts with "Once upon a time";
+    // cf. the comment above, just encoding actual text we get into tokens instead, we get
+    // text generation for any string. This is fine enough for a demo though.
     let res_str = if str_buf.starts_with("Once upon a time!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!") {
         let count = str_buf.chars().filter(|c| *c == '!').count() as usize;
         let s = format!("{}", next_n_words(&str_buf, count + 5 - 70));
@@ -76,7 +83,7 @@ pub fn shape(
         })
         .collect();
 
-    for mut item in buffer.glyphs.iter_mut() {
+    for item in buffer.glyphs.iter_mut() {
         // Map character to glyph
         item.codepoint = font.get_glyph(item.codepoint, 0);
         // Set advance width
