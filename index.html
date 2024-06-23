@@ -41,7 +41,7 @@
         based on the 15M parameter TinyStories-based model demoed above) and use it like you would any other font. Use it somewhere where Harfbuzz is used
         and built with Wasm support.
       
-        The simplest way to experiment with this is probably to build <a href="https://github.com/harfbuzz/harfbuzz/tree/4cfc6d8e173e800df086d7be078da2e8c5cfca19">Harfbuzz</a> and
+        The simplest way to experiment with this is probably to build <a href="https://github.com/harfbuzz/harfbuzz/tree/4cfc6d8e173e800df086d7be078da2e8c5cfca19">Harfbuzz</a> with <code>-Dwasm=enabled</code> and build
         <a href="https://github.com/bytecodealliance/wasm-micro-runtime/tree/382d52fc05dbb543dfafb969182104d6c4856c63">wasm-micro-runtime</a>,
         then add the resulting shared libraries, <code>libharfbuzz.so.0.60811.0</code> and <code>libiwasm.so</code> to the <code>LD_PRELOAD</code>
         environment variable before running a Harfbuzz-based application such as gedit or GIMP; no recompilation of the applications is required.
