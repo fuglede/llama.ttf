@@ -42,7 +42,7 @@
         and built with Wasm support.
       
         The simplest way to experiment with this is probably to build <a href="https://github.com/harfbuzz/harfbuzz/tree/4cfc6d8e173e800df086d7be078da2e8c5cfca19">HarfBuzz</a> with <code>-Dwasm=enabled</code> and build
-        <a href="https://github.com/bytecodealliance/wasm-micro-runtime/tree/382d52fc05dbb543dfafb969182104d6c4856c63">wasm-micro-runtime</a>,
+        <a href="https://github.com/bytecodealliance/wasm-micro-runtime/tree/382d52fc05dbb543dfafb969182104d6c4856c63">wasm-micro-runtime</a> with <code>-DWAMR_BUILD_REF_TYPES=1</code>,
         then add the resulting shared libraries, <code>libharfbuzz.so.0.60811.0</code> and <code>libiwasm.so</code> to the <code>LD_PRELOAD</code>
         environment variable before running a HarfBuzz-based application such as gedit or GIMP; no recompilation of the applications is required.
       </p>
