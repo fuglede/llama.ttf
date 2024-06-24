@@ -15,7 +15,7 @@
       <h3>Why?</h3>
       <h3>How?</h3>
       <p>
-        The font shaping engine <a href="https://en.wikipedia.org/wiki/HarfBuzz">Harfbuzz</a>, used in applications such as Firefox and Chrome,
+        The font shaping engine <a href="https://en.wikipedia.org/wiki/HarfBuzz">HarfBuzz</a>, used in applications such as Firefox and Chrome,
         comes with a <a href="https://github.com/harfbuzz/harfbuzz/blob/main/docs/wasm-shaper.md">Wasm shaper</a> allowing arbitrary code to be
         used to "shape" text.
         
@@ -27,7 +27,7 @@
         in our case, hence the name) except instead of only being in principle it's what this is.
         <br /><br />
         At the end of the day, what this means is that you can just use the font to run the LLM and e.g. get text generation in <i>any</i>
-        Wasm-enabled Harfbuzz-based application; your favorite text editor/email client/whatever without having to wait for the vendor to include
+        Wasm-enabled HarfBuzz-based application; your favorite text editor/email client/whatever without having to wait for the vendor to include
         the "Copilot"-like features that everyone is rushing to implement these days. And everything runs
         completely locally. So perhaps this silly hack is in fact a billion dollar idea!? This also means that you can use your font to
         chat with your font.
@@ -38,19 +38,19 @@
       <p>Skip to <a href="https://www.youtube.com/watch?v=Q4bOyYctgFI#t=6m09s">6:09</a> if you just want to see the font in action.</p>
       <h3>Usage</h3>
       <p>Just download <code><a href="https://github.com/fuglede/llama.ttf/raw/master/llamattf/llama.ttf">llama.ttf</a></code> (60 MB download, since it's
-        based on the 15M parameter TinyStories-based model demoed above) and use it like you would any other font. Use it somewhere where Harfbuzz is used
+        based on the 15M parameter TinyStories-based model demoed above) and use it like you would any other font. Use it somewhere where HarfBuzz is used
         and built with Wasm support.
       
-        The simplest way to experiment with this is probably to build <a href="https://github.com/harfbuzz/harfbuzz/tree/4cfc6d8e173e800df086d7be078da2e8c5cfca19">Harfbuzz</a> with <code>-Dwasm=enabled</code> and build
+        The simplest way to experiment with this is probably to build <a href="https://github.com/harfbuzz/harfbuzz/tree/4cfc6d8e173e800df086d7be078da2e8c5cfca19">HarfBuzz</a> with <code>-Dwasm=enabled</code> and build
         <a href="https://github.com/bytecodealliance/wasm-micro-runtime/tree/382d52fc05dbb543dfafb969182104d6c4856c63">wasm-micro-runtime</a>,
         then add the resulting shared libraries, <code>libharfbuzz.so.0.60811.0</code> and <code>libiwasm.so</code> to the <code>LD_PRELOAD</code>
-        environment variable before running a Harfbuzz-based application such as gedit or GIMP; no recompilation of the applications is required.
+        environment variable before running a HarfBuzz-based application such as gedit or GIMP; no recompilation of the applications is required.
       </p>
       <h3>More fun with fonts</h3>
       <p>If this didn't seem pointless enough, here are some other weird things people have done with fonts and LLMs:
         <ul>
           <li>tom7's Super Metroid speedrun documentation-inspired language for formatting text nicely with LLMs: <a href="https://www.youtube.com/watch?v=Y65FRxE7uMc">https://www.youtube.com/watch?v=Y65FRxE7uMc</a></li>
-          <li>Erk's presentation on programmable fonts with Harfbuzz-Wasm, very much an inspiration for this one: <a href="https://www.youtube.com/watch?v=Ms1Drb9Vw9M">https://www.youtube.com/watch?v=Ms1Drb9Vw9M</a></li>
+          <li>Erk's presentation on programmable fonts with HarfBuzz-Wasm, very much an inspiration for this one: <a href="https://www.youtube.com/watch?v=Ms1Drb9Vw9M">https://www.youtube.com/watch?v=Ms1Drb9Vw9M</a></li>
           <li>A completely playable Pokémon-inspired game inside a font: <a href="https://www.coderelay.io/fontemon.html">https://www.coderelay.io/fontemon.html</a></li>
         </ul>
       </p>
