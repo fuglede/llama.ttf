@@ -1,0 +1,142 @@
+<!doctype html>
+<html lang="en">
+	<head>
+		<meta charset="utf-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+
+		<title>llama.ttf</title>
+
+		<link rel="stylesheet" href="dist/reset.css">
+		<link rel="stylesheet" href="dist/reveal.css">
+		<link rel="stylesheet" href="dist/theme/black.css">
+
+		<!-- Theme used for syntax highlighted code -->
+		<link rel="stylesheet" href="plugin/highlight/monokai.css">
+	</head>
+	<body>
+		<div class="reveal">
+			<div class="slides">
+				<section>
+					<h1><code>llama.ttf</code></h1>
+					<img class="r-stretch" src="llamatypewriter.webp">
+					<h3>The font to end all writer's blocks</h3>
+				</section>
+				<section>
+					<h2>The biggest questions in the universe</h2>
+					<ol>
+						<li>Why are large language models so hyped?</li>
+						<li>What are letters?</li>
+						<li>Why?</li>
+					</ol>
+				</section>
+
+				<section>
+					<h2>Prior art</h2>
+					<img class="r-stretch" src="bad-ligatures.webp">
+				</section>
+
+				<section>
+					<h2>Prior art</h2>
+					<img class="r-stretch" src="tom7.png">
+					<!-- Yep, no br on purpose. -->
+					Source: <a href="https://www.youtube.com/watch?v=Y65FRxE7uMc">tom7</a>
+				</section>
+
+				<section>
+					<img class="r-stretch" src="basically-you.webp">
+				</section>
+
+				<section>
+					<img class="r-stretch" src="writers-blocks.png">
+					<p>Source: <a href="https://writers.com/writers-block-what-causes-writers-block-and-how-to-overcome-it">writers.com</a></p>
+				</section>
+
+				<section>
+					<h2>What is writing?</h2>
+					<blockquote>
+						<b>Writing</b> is the act of creating a persistent representation of human language. A writing system uses a set of symbols and rules to encode aspects of spoken language
+					</blockquote>
+					<p>Source: <a href="https://en.wikipedia.org/wiki/Writing">Wikipedia</a></p>
+				</section>
+
+				<section>
+					<h2>Our antagonist: The font</h2>
+					<img class="r-stretch" src="font.png">
+				</section>
+
+				<section>
+					<h2>Problems with fonts</h2>
+					<ol>
+						<li>They are uninspired</li>
+						<li>They are inefficient</li>
+						<li>They are <i>not very clever</i></li>
+					</ol>
+				</section>
+				
+				<section>
+					<h2>Ligatures</h2>
+					<img class="r-stretch" src="Ligature_drawing.svg">
+				</section>
+
+				<section>
+					<h2>Harfbuzz to the rescue</h2>
+					<img class="r-stretch" src="harfbuzz-comparison.png">
+					Source: <a href="https://github.com/harfbuzz/harfbuzz-wasm-examples/"><code>harfbuzz-wasm-examples</code> @ GitHub</a>
+				</section>
+
+				<section>
+					<h1>
+						Demo
+					</h1>
+				</section>
+
+				<section>
+					<img class="r-stretch" src="font-hug.webp">
+				</section>
+
+				<section>
+					<img class="r-stretch" src="padme.jpg">
+				</section>
+
+				<section>
+					<h2>Comparison with prior art</h2>
+					<table>
+						<tr>
+							<th>File name</th>
+							<th>File size</th>
+						</tr>
+						<tr>
+							<td><code>Comic Sans MS.ttf</code></td>
+							<td>89 kB</td>
+						</tr>
+						<tr>
+							<td><code>llama70B.ttf</code></td>
+							<td>280 GB</td>
+						</tr>
+					</table>
+				</section>
+
+			</div>
+		</div>
+
+		<script src="dist/reveal.js"></script>
+		<script src="plugin/notes/notes.js"></script>
+		<script src="plugin/markdown/markdown.js"></script>
+		<script src="plugin/highlight/highlight.js"></script>
+		<script>
+			// More info about initialization & config:
+			// - https://revealjs.com/initialization/
+			// - https://revealjs.com/config/
+			Reveal.initialize({
+				hash: true,
+				controls: false,
+				progress: false,
+				autoAnimate: false,
+				transition: 'none',
+
+				// Learn about plugins: https://revealjs.com/plugins/
+				plugins: [ RevealMarkdown, RevealHighlight, RevealNotes ]
+			});
+		</script>
+	</body>
+</html>
